@@ -45,10 +45,10 @@ public class PepseGameManager extends GameManager {
         gameObjects().addGameObject(night, Layer.FOREGROUND);
 
         GameObject sun = Sun.create(windowController.getWindowDimensions(), 30);
-        gameObjects().addGameObject(sun, Layer.FOREGROUND);
+        gameObjects().addGameObject(sun, Layer.BACKGROUND);
 
         GameObject sunHalo = SunHalo.create(sun);
-        gameObjects().addGameObject(sunHalo, Layer.FOREGROUND);
+        gameObjects().addGameObject(sunHalo, Layer.BACKGROUND);
 
         Flora flora = new Flora(terrain::groundHeightAt);
         List<Tree> treeArray = flora.createInRange(0,(int) windowController.getWindowDimensions().x());
@@ -73,6 +73,7 @@ public class PepseGameManager extends GameManager {
         GameObject gameObject = new GameObject(Vector2.ZERO, Vector2.ONES.mult(50f), textRenderable);
         gameObjects().addGameObject(gameObject, Layer.FOREGROUND);
         gameObject.addComponent(deltaTime -> textRenderable.setString(avatar.getEnergy()+"%"));
+
         }
 
 

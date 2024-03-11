@@ -5,6 +5,10 @@ import danogl.gui.ImageReader;
 import danogl.gui.SoundReader;
 import danogl.gui.UserInputListener;
 import danogl.gui.WindowController;
+import danogl.gui.rendering.Renderable;
+import danogl.gui.rendering.TextRenderable;
+import danogl.util.Vector2;
+import world.Avatar;
 import world.Sky;
 import world.Block;
 import world.Terrain;
@@ -12,6 +16,7 @@ import world.daynight.Night;
 import world.daynight.Sun;
 import world.daynight.SunHalo;
 
+import java.awt.*;
 import java.util.List;
 
 public class PepseGameManager extends GameManager {
@@ -39,7 +44,22 @@ public class PepseGameManager extends GameManager {
 
         GameObject sunHalo = SunHalo.create(sun);
         gameObjects().addGameObject(sunHalo, Layer.FOREGROUND);
-    }
+
+        Avatar avatar = new Avatar(new Vector2(
+                windowController.getWindowDimensions().x()/2,
+                terrain.groundHeightAt(windowController.getWindowDimensions().x()/2) - Avatar.DIMENSIONS.y()),
+                inputListener,
+                imageReader
+                );
+        gameObjects().addGameObject(avatar, Layer.DEFAULT);
+
+//        textRenderable = new TextRenderable(String.valueOf(initialHearts));
+//        textRenderable.setColor(Color.GREEN);
+//        GameObject gameObject = new GameObject(new Vector2(
+//                MARGIN, windowController.getWindowDimensions().y()-HEART_SIZE-MARGIN
+//        ), Vector2.ONES.mult(HEART_SIZE), textRenderable);
+//        gameObjects.addGameObject(gameObject, Layer.FOREGROUND);
+        }
 
     public static void main(String[] args){
         new PepseGameManager().run();

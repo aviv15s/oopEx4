@@ -17,7 +17,7 @@ public class Terrain {
     private final Vector2 windowDimensions;
 
     public Terrain(Vector2 windowDimensions, int seed){
-        groundHeightAtX0 = (int) windowDimensions.y() / 3;
+        groundHeightAtX0 = 4*(int) windowDimensions.y() / 5;
         this.windowDimensions = windowDimensions;
     }
 

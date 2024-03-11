@@ -53,6 +53,7 @@ public class PepseGameManager extends GameManager {
                 );
         gameObjects().addGameObject(avatar, Layer.DEFAULT);
 
+
 //        textRenderable = new TextRenderable(String.valueOf(initialHearts));
 //        textRenderable.setColor(Color.GREEN);
 //        GameObject gameObject = new GameObject(new Vector2(

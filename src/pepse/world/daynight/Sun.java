@@ -1,4 +1,4 @@
-package world.daynight;
+package pepse.world.daynight;
 
 import danogl.GameObject;
 import danogl.components.CoordinateSpace;
@@ -6,7 +6,7 @@ import danogl.components.Transition;
 import danogl.gui.rendering.OvalRenderable;
 import danogl.gui.rendering.Renderable;
 import danogl.util.Vector2;
-import world.Terrain;
+import pepse.world.Terrain;
 
 import java.awt.*;
 

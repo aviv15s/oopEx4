@@ -1,4 +1,4 @@
-package world.trees;
+package pepse.world.trees;
 
 import util.JumpingObserver;
 
@@ -14,8 +14,8 @@ import java.util.function.Function;
  * @author aviv.shemesh, ram3108_
  */
 public class Flora {
-    public static final int BLOCK_SIZE = 30;
-    private static final double LEAF_PROB = 0.1;
+    private static final int BLOCK_SIZE = 30;
+    private static final double TREE_PROB = 0.1;
     private List<Tree> TreesArray;
     private Function<Float, Float> funcToGetY;
     private Consumer<JumpingObserver> observerTarget;
@@ -45,7 +45,7 @@ public class Flora {
         int NumCols = (maxX - minX) / BLOCK_SIZE;
         for (int colInd = 0; colInd < NumCols; colInd++) {
             probability = random.nextDouble();
-            if (probability < LEAF_PROB) {
+            if (probability < TREE_PROB) {
                 float xValue = minX + BLOCK_SIZE * colInd;
                 TreesArray.add(new Tree(xValue, funcToGetY.apply(xValue), observerTarget));
             }

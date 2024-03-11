@@ -1,4 +1,4 @@
-package world.trees;
+package pepse.world.trees;
 
 import danogl.GameObject;
 import danogl.collisions.Collision;
@@ -7,7 +7,7 @@ import danogl.gui.rendering.OvalRenderable;
 import danogl.gui.rendering.Renderable;
 import danogl.util.Vector2;
 import util.JumpingObserver;
-import world.Avatar;
+import pepse.world.Avatar;
 
 import java.awt.*;
 import java.util.Random;
@@ -47,7 +47,7 @@ public class Fruit extends GameObject implements JumpingObserver {
     @Override
     public void onCollisionStay(GameObject other, Collision collision) {
         super.onCollisionStay(other, collision);
-        if (other.getTag().equals(Avatar.AVATAR_TAG) && this.renderer() != null) {
+        if (other.getTag().equals(Avatar.AVATAR_TAG) && this.renderer().getRenderable() != null) {
             this.renderer().setRenderable(null);
             new ScheduledTask(this,
                     WAIT_TIME,

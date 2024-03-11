@@ -1,4 +1,4 @@
-package world.trees;
+package pepse.world.trees;
 
 import danogl.GameObject;
 import danogl.components.ScheduledTask;

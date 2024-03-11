@@ -1,3 +1,5 @@
+package pepse;
+
 import danogl.GameManager;
 import danogl.GameObject;
 import danogl.collisions.Layer;
@@ -7,15 +9,15 @@ import danogl.gui.UserInputListener;
 import danogl.gui.WindowController;
 import danogl.gui.rendering.TextRenderable;
 import danogl.util.Vector2;
-import world.Avatar;
-import world.Sky;
-import world.Block;
-import world.Terrain;
-import world.daynight.Night;
-import world.daynight.Sun;
-import world.daynight.SunHalo;
-import world.trees.Flora;
-import world.trees.Tree;
+import pepse.world.Avatar;
+import pepse.world.Sky;
+import pepse.world.Block;
+import pepse.world.Terrain;
+import pepse.world.daynight.Night;
+import pepse.world.daynight.Sun;
+import pepse.world.daynight.SunHalo;
+import pepse.world.trees.Flora;
+import pepse.world.trees.Tree;
 
 import java.util.List;
 import java.util.Random;
@@ -24,7 +26,7 @@ import java.util.Random;
  * the Pepse game manager
  * @author aviv.shemesh, ram3108_
  */
-class PepseGameManager extends GameManager {
+public class PepseGameManager extends GameManager {
 
     private static final int SKY_LAYER = Layer.BACKGROUND;
     private static final int LEAF_LAYER = -3;

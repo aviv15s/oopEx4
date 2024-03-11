@@ -1,4 +1,4 @@
-package world;
+package pepse.world;
 
 import danogl.gui.rendering.RectangleRenderable;
 import danogl.gui.rendering.Renderable;

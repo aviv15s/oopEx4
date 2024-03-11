@@ -69,13 +69,12 @@ public class PepseGameManager extends GameManager {
         gameObjects().addGameObject(avatar, Layer.DEFAULT);
 
 
-//        textRenderable = new TextRenderable(String.valueOf(initialHearts));
-//        textRenderable.setColor(Color.GREEN);
-//        GameObject gameObject = new GameObject(new Vector2(
-//                MARGIN, windowController.getWindowDimensions().y()-HEART_SIZE-MARGIN
-//        ), Vector2.ONES.mult(HEART_SIZE), textRenderable);
-//        gameObjects.addGameObject(gameObject, Layer.FOREGROUND);
+        TextRenderable textRenderable = new TextRenderable("100%");
+        GameObject gameObject = new GameObject(Vector2.ZERO, Vector2.ONES.mult(50f), textRenderable);
+        gameObjects().addGameObject(gameObject, Layer.FOREGROUND);
+        gameObject.addComponent(deltaTime -> textRenderable.setString(avatar.getEnergy()+"%"));
         }
+
 
     public static void main(String[] args){
         new PepseGameManager().run();

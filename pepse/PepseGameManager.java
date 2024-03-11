@@ -20,7 +20,10 @@ import world.trees.Tree;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * the Pepse game manager
+ * @author aviv.shemesh, ram3108_
+ */
 class PepseGameManager extends GameManager {
 
     private static final int SKY_LAYER = Layer.BACKGROUND;

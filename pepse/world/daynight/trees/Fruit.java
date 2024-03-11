@@ -8,7 +8,7 @@ import danogl.gui.rendering.Renderable;
 import danogl.util.Vector2;
 
 public class Fruit extends GameObject {
-    private static final int WAIT_TIME = 5;
+    private static final int WAIT_TIME = 30;
     private Renderable renderable;
     public Fruit(Vector2 topLeftCorner, Vector2 dimensions, Renderable renderable) {
         super(topLeftCorner, dimensions, renderable);

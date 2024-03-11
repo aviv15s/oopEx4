@@ -69,7 +69,8 @@ public class Terrain {
         for (int x = minX; x < maxX; x += Block.SIZE) {
             int blockHeight = (int) (Math.floor(groundHeightAt(x) / Block.SIZE) * Block.SIZE);
             for (int i = 0; i < TERRAIN_DEPTH; i++) {
-                Renderable renderable = new RectangleRenderable(ColorSupplier.approximateColor(BASE_GROUND_COLOR));
+                Renderable renderable =
+                        new RectangleRenderable(ColorSupplier.approximateColor(BASE_GROUND_COLOR));
                 Block block = new Block(new Vector2(x, blockHeight+i*Block.SIZE), renderable);
                 list.add(block);
             }

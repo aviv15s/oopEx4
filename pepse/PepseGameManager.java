@@ -21,17 +21,17 @@ import java.util.List;
 import java.util.Random;
 
 
-public class PepseGameManager extends GameManager {
+class PepseGameManager extends GameManager {
 
-    public static final int SKY_LAYER = Layer.BACKGROUND;
-    public static final int LEAF_LAYER = -3;
-    public static final int FRUIT_LAYER = -2;
-    public static final int AVATAR_LAYER = 0;
-    public static final int SUN_LAYER = -150;
-    public static final int CYCLE_LENGTH = 30;
-    public static final int TERRAIN_LAYER = Layer.STATIC_OBJECTS;
-    public static final int TRUNK_LAYER = -1;
-    public static final Vector2 TEXT_OBJECT_DIMENSIONS = Vector2.ONES.mult(50f);
+    private static final int SKY_LAYER = Layer.BACKGROUND;
+    private static final int LEAF_LAYER = -3;
+    private static final int FRUIT_LAYER = -2;
+    private static final int AVATAR_LAYER = 0;
+    private static final int SUN_LAYER = -150;
+    private static final int CYCLE_LENGTH = 30;
+    private static final int TERRAIN_LAYER = Layer.STATIC_OBJECTS;
+    private static final int TRUNK_LAYER = -1;
+    private static final Vector2 TEXT_OBJECT_DIMENSIONS = Vector2.ONES.mult(50f);
 
     /**
      * initialize our method
@@ -122,7 +122,8 @@ public class PepseGameManager extends GameManager {
      * @param terrain to avatar ground
      * @return the avatar created
      */
-    private Avatar createAvatar(ImageReader imageReader, UserInputListener inputListener, WindowController windowController, Terrain terrain) {
+    private Avatar createAvatar(ImageReader imageReader, UserInputListener inputListener,
+                                WindowController windowController, Terrain terrain) {
         Avatar avatar = new Avatar(new Vector2(
                 windowController.getWindowDimensions().x() / 2,
                 terrain.groundHeightAt(
@@ -139,6 +140,7 @@ public class PepseGameManager extends GameManager {
      * @param args getting from terminal
      */
     public static void main(String[] args) {
-        new PepseGameManager().run();
+        PepseGameManager pepseGameManager = new PepseGameManager();
+        pepseGameManager.run();
     }
 }

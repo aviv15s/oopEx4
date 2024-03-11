@@ -31,12 +31,26 @@ public class Avatar extends GameObject {
     private static final float MAX_ENERGY = 100f;
     private float energy = MAX_ENERGY;
 
-    private static final String[] IDLE_SPRITES = new String[]{"assets/idle_0.png", "assets/idle_1.png", "assets/idle_2.png", "assets/idle_3.png",};
+    private static final String[] IDLE_SPRITES = new String[]{
+            "assets/idle_0.png",
+            "assets/idle_1.png",
+            "assets/idle_2.png",
+            "assets/idle_3.png",};
     private final AnimationRenderable idleRenderable;
-    private static final String[] RUNNING_SPRITES = new String[]{"assets/run_0.png", "assets/run_1.png", "assets/run_2.png", "assets/run_3.png", "assets/run_4.png", "assets/run_5.png",};
+    private static final String[] RUNNING_SPRITES = new String[]{
+            "assets/run_0.png",
+            "assets/run_1.png",
+            "assets/run_2.png",
+            "assets/run_3.png",
+            "assets/run_4.png",
+            "assets/run_5.png",};
 
     private final AnimationRenderable runningRenderable;
-    private static final String[] JUMPING_SPRITES = new String[]{"assets/jump_0.png", "assets/jump_1.png", "assets/jump_2.png", "assets/jump_3.png",};
+    private static final String[] JUMPING_SPRITES = new String[]{
+            "assets/jump_0.png",
+            "assets/jump_1.png",
+            "assets/jump_2.png",
+            "assets/jump_3.png",};
     private final AnimationRenderable jumpingRenderable;
     private final List<JumpingObserver> jumpObserversList = new ArrayList<>();
 

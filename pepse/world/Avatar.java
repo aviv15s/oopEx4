@@ -94,7 +94,7 @@ public class Avatar extends GameObject {
         energy = Math.min(MAX_ENERGY, energy + value);
     }
 
-    public void subsribeToPlayerJumping(JumpingObserver observer){
+    public void subscribeToPlayerJumping(JumpingObserver observer){
         jumpObserversList.add(observer);
     }
 

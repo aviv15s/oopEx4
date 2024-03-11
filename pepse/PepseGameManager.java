@@ -54,8 +54,8 @@ public class PepseGameManager extends GameManager {
         List<Tree> treeArray = flora.createInRange(0,(int) windowController.getWindowDimensions().x());
         gameObjects().layers().shouldLayersCollide(LEAF_LAYER,LEAF_LAYER, false);
         for (Tree tree:treeArray){
-            gameObjects().addGameObject(tree.getRoot(),Layer.DEFAULT);
-            for(GameObject leaf:tree.getLeafs().getLeafArray()){
+            gameObjects().addGameObject(tree.getTrunk(),Layer.DEFAULT);
+            for(GameObject leaf:tree.getLeafs()){
                 gameObjects().addGameObject(leaf,LEAF_LAYER);
             }
         }

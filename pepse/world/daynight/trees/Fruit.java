@@ -8,7 +8,7 @@ import danogl.gui.rendering.Renderable;
 import danogl.util.Vector2;
 
 public class Fruit extends GameObject {
-    private static final int WAIT_TIME = 30;
+    private static final int WAIT_TIME = 5;
     private Renderable renderable;
     public Fruit(Vector2 topLeftCorner, Vector2 dimensions, Renderable renderable) {
         super(topLeftCorner, dimensions, renderable);
@@ -16,8 +16,8 @@ public class Fruit extends GameObject {
     }
     @Override
     public void onCollisionEnter(GameObject other, Collision collision) {
+        super.onCollisionEnter(other, collision);
         if(this.renderer()!=null){
-            super.onCollisionEnter(other, collision);
             this.renderer().setRenderable(null);
             new ScheduledTask(this,
                     WAIT_TIME,

@@ -17,6 +17,7 @@ import world.daynight.Sun;
 import world.daynight.SunHalo;
 import world.daynight.trees.Flora;
 import world.daynight.trees.Flora;
+import world.daynight.trees.Fruit;
 import world.daynight.trees.Tree;
 
 import java.awt.*;
@@ -25,8 +26,10 @@ import java.util.List;
 public class PepseGameManager extends GameManager {
 
     public static final int SKY_LAYER = Layer.BACKGROUND;
-    public static final int LEAF_LAYER = 31;
+    public static final int LEAF_LAYER = -1;
     public static final int BLOCK_SIZE = 30;
+    public static final int FRUIT_LAYER=2;
+    public static final int AVATAR_LAYER = Layer.DEFAULT;
 
     @Override
     public void initializeGame(ImageReader imageReader, SoundReader soundReader, UserInputListener inputListener, WindowController windowController) {
@@ -53,13 +56,15 @@ public class PepseGameManager extends GameManager {
         Flora flora = new Flora(terrain::groundHeightAt);
         List<Tree> treeArray = flora.createInRange(0,(int) windowController.getWindowDimensions().x());
         gameObjects().layers().shouldLayersCollide(LEAF_LAYER,LEAF_LAYER, false);
+        gameObjects().layers().shouldLayersCollide(FRUIT_LAYER,FRUIT_LAYER, false);
+        gameObjects().layers().shouldLayersCollide(FRUIT_LAYER,AVATAR_LAYER, true);
         for (Tree tree:treeArray){
             gameObjects().addGameObject(tree.getTrunk(),Layer.DEFAULT);
             for(GameObject leaf:tree.getLeafArray()){
                 gameObjects().addGameObject(leaf,LEAF_LAYER);
             }
             for(GameObject fruit:tree.getFruitArray()){
-                gameObjects().addGameObject(fruit,LEAF_LAYER);
+                gameObjects().addGameObject(fruit, FRUIT_LAYER);
             }
         }
 
@@ -69,7 +74,7 @@ public class PepseGameManager extends GameManager {
                 inputListener,
                 imageReader
                 );
-        gameObjects().addGameObject(avatar, Layer.DEFAULT);
+        gameObjects().addGameObject(avatar, AVATAR_LAYER);
 
 
         TextRenderable textRenderable = new TextRenderable("100%");

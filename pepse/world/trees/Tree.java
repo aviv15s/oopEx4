@@ -1,18 +1,19 @@
-package world.daynight.trees;
+package world.trees;
 
 import danogl.GameObject;
 import danogl.util.Vector2;
 import danogl.gui.rendering.RectangleRenderable;
 import danogl.gui.rendering.OvalRenderable;
+import util.JumpingObserver;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.function.Consumer;
 
 public class Tree {
-    private static final Color ROOT_DEFAULT_COLOR = new Color(100,50,20);
     private static final Color LEEF_COLOR = new Color(50, 200, 30);
-    private static final Color FRUIT_COLOR = new Color(50,50,50);
     private static final double LEAF_MAX_FRUIT_MIN_PROP = 0.2;
     private static final double MAX_FRUIT_PROP = 0.25;
     private static final int BlOCK_TOP_SIZE = 150;
@@ -29,18 +30,18 @@ public class Tree {
     private List<Fruit> fruitArray;
 
 
-    public Tree(float xCoordinate, float yCoordinate){
+    public Tree(float xCoordinate, float yCoordinate, Consumer<JumpingObserver> jumpingObserver){
         topTreeXStart = xCoordinate - OFFSET_X;
         topTreeYStart = yCoordinate + OFFSET_Y -ROOT_SIZE.y();
         leafArray = new ArrayList<Leaf>();
         fruitArray = new ArrayList<Fruit>();
-        generateLeafs();
+        generateLeafs(jumpingObserver);
         trunk = new Trunk( new Vector2(xCoordinate,yCoordinate-ROOT_SIZE.y()),
-                ROOT_SIZE,
-                new RectangleRenderable(ROOT_DEFAULT_COLOR));
+                ROOT_SIZE);
+        jumpingObserver.accept(trunk);
     }
 
-    private void generateLeafs(){
+    private void generateLeafs(Consumer<JumpingObserver> jumpingObserver){
         Random random = new Random();
         Double probability;
         for (int row = 0; row < NUM_LEAFS; row++) {
@@ -54,13 +55,14 @@ public class Tree {
                             new Vector2(LEAF_SIZE, LEAF_SIZE),
                             new RectangleRenderable(LEEF_COLOR));
                     leafArray.add(leaf);
+                    jumpingObserver.accept(leaf);
                 }
                 if(LEAF_MAX_FRUIT_MIN_PROP<probability&&probability<MAX_FRUIT_PROP){
                     Fruit fruit = new Fruit(
                             new Vector2(x, y),
-                            new Vector2(FRUIT_SIZE, FRUIT_SIZE),
-                            new OvalRenderable(FRUIT_COLOR));
+                            new Vector2(FRUIT_SIZE, FRUIT_SIZE));
                     fruitArray.add(fruit);
+                    jumpingObserver.accept(fruit);
                 }
             }
         }

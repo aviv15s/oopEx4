@@ -17,6 +17,7 @@ import java.util.List;
 public class PepseGameManager extends GameManager {
 
     public static final int SKY_LAYER = Layer.BACKGROUND;
+    public static final int BLOCK_SIZE = 30;
 
     @Override
     public void initializeGame(ImageReader imageReader, SoundReader soundReader, UserInputListener inputListener, WindowController windowController) {

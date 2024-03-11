@@ -7,14 +7,14 @@ import java.awt.*;
 
 public class Tree {
     private static final Color ROOT_DEFAULT_COLOR = new Color(100,50,20);
-    private static final Vector2 ROOT_SIZE = new Vector2(30,60);
+    private static final Vector2 ROOT_SIZE = new Vector2(30,90);
     private GameObject root;
     private Leafs leafs;
 
-    public Tree(int xCoordinate, int yCoordinate){
-        leafs = new Leafs(xCoordinate,yCoordinate);
+    public Tree(float xCoordinate, float yCoordinate){
+        leafs = new Leafs(xCoordinate,yCoordinate-ROOT_SIZE.y());
         root = new GameObject(
-                new Vector2(xCoordinate,yCoordinate+ROOT_SIZE.y()),
+                new Vector2(xCoordinate,yCoordinate-ROOT_SIZE.y()),
                 ROOT_SIZE,
                 new RectangleRenderable(ROOT_DEFAULT_COLOR));
     }

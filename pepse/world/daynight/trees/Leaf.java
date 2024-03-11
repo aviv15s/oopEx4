@@ -10,8 +10,8 @@ import java.util.Random;
 
 public class Leaf extends GameObject{
 
-    private static final Vector2 MIN_LEAF_SIZE = new Vector2(15,15);
-    private static final Vector2 MAX_LEAF_SIZE = new Vector2(17,15);
+    private static final Vector2 MIN_LEAF_SIZE = new Vector2(100,100);
+    private static final Vector2 MAX_LEAF_SIZE = new Vector2(100,100);
     private static final float TIME_TRANSITION_ROTATE = 4;
     private static final float TIME_TRANSITION_SIZE = 1;
     private static final float  MAX_ANGLE = 40;

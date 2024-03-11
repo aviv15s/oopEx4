@@ -51,12 +51,12 @@ public class Tree {
                             new RectangleRenderable(LEEF_COLOR));
                     leafArray.add(leaf);
                 }
-                if(LEAF_MAX_FRUIT_MIN_PROP<probability&&probability<MAX_FRUIT_PROP){
-                    Fruit fruit = new Fruit(
-                            new Vector2(x, y),
-                            new Vector2(FRUIT_SIZE, FRUIT_SIZE),
-                            new );
-                }
+//                if(LEAF_MAX_FRUIT_MIN_PROP<probability&&probability<MAX_FRUIT_PROP){
+//                    Fruit fruit = new Fruit(
+//                            new Vector2(x, y),
+//                            new Vector2(FRUIT_SIZE, FRUIT_SIZE),
+//                            new );
+//                }
             }
         }
     }

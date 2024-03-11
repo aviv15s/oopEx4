@@ -17,8 +17,9 @@ import java.awt.*;
  */
 public class Sun {
     private static final float SIZE = 100f;
-    private static final float CYCLE_RADIUS_FACTOR = 0.4f;
+    private static final float CYCLE_RADIUS_FACTOR = 0.3f;
     public static final String SUN_TAG = "sun";
+    private static final float FULL_CIRCLE = 360f;
 
     /**
      * private constructor to prevent instances of this class
@@ -38,13 +39,13 @@ public class Sun {
         float sunCycleRadius = Math.min(windowDimensions.x(), windowDimensions.y()) * CYCLE_RADIUS_FACTOR;
         Renderable ovalRenderable = new OvalRenderable(Color.YELLOW);
         GameObject sun = new GameObject(Vector2.ZERO, Vector2.ONES.mult(SIZE), ovalRenderable);
-        sun.setCenter(new Vector2(windowDimensions.x() / 2, windowDimensions.y() / 2));
         sun.setCoordinateSpace(CoordinateSpace.CAMERA_COORDINATES);
         sun.setTag(SUN_TAG);
 
         Vector2 cycleCenter = new Vector2(windowDimensions.x() / 2,
                 Terrain.calculateGroundHeightAtX0(windowDimensions));
         Vector2 initialSunCenter = cycleCenter.add(Vector2.UP.mult(sunCycleRadius));
+        sun.setCenter(initialSunCenter);
 
         Transition<Float> transition = new Transition<Float>(
                 sun,
@@ -53,7 +54,7 @@ public class Sun {
                                 .rotated(angle)
                                 .add(cycleCenter)),
                 0f,
-                360f,
+                FULL_CIRCLE,
                 Transition.LINEAR_INTERPOLATOR_FLOAT,
                 cycleLength,
                 Transition.TransitionType.TRANSITION_LOOP,

@@ -55,8 +55,11 @@ public class PepseGameManager extends GameManager {
         gameObjects().layers().shouldLayersCollide(LEAF_LAYER,LEAF_LAYER, false);
         for (Tree tree:treeArray){
             gameObjects().addGameObject(tree.getTrunk(),Layer.DEFAULT);
-            for(GameObject leaf:tree.getLeafs()){
+            for(GameObject leaf:tree.getLeafArray()){
                 gameObjects().addGameObject(leaf,LEAF_LAYER);
+            }
+            for(GameObject fruit:tree.getFruitArray()){
+                gameObjects().addGameObject(fruit,LEAF_LAYER);
             }
         }
 

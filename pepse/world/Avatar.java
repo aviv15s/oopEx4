@@ -17,6 +17,7 @@ import java.awt.event.KeyEvent;
  * @author aviv.shemesh, ram3108_
  */
 public class Avatar extends GameObject {
+    public static final String AVATAR_TAG = "avatar";
     private static final float VELOCITY_X = 400;
     private static final float VELOCITY_Y = -650;
     private static final float GRAVITY = 600;
@@ -59,6 +60,7 @@ public class Avatar extends GameObject {
         jumpingRenderable = new AnimationRenderable(JUMPING_SPRITES, imageReader, true, ANIMATION_SPEED);
 
         renderer().setRenderable(idleRenderable);
+        setTag(AVATAR_TAG);
     }
 
     /**

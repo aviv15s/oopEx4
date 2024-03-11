@@ -1,1 +1,31 @@
-# oopEx4
+aviv.shemesh,ram3108_
+213847015,213809957
+
+1) How we implemented the Trees package:
+
+2) The classes we created in that package:
+- Fruit:
+- Leaf:
+- Trunk:
+- Tree:
+- Flora:
+
+3) The connection between the classes in that package:
+- There are multiple classes which are "factory classes" (Sun, Halo, Night and a few more). These classes
+  are standalone classes and do not even have a public constructor (we created a private one). These classes
+  only hava a public static "create" function which returns a GameObject instance with some functionality.
+  These classes are not really connected to any other class.
+- The Terrain class and The Tree (and Flora) classes are a bit more complex. They use basic building blocks
+  (literally the Block class for the Terrain and Trunk, Leaf and Fruit class for Trees) to create complex
+  structures in the world. These classes therefor need to know how to create such objects and how they should
+  be placed in the world.
+- Some classes need to be updated by events in the game. In this exercise the only relevant event is the
+  player jumping, and for that we used the observer design pattern (more on that later).
+
+4) Design patterns used:
+- We used the Observer design pattern to implement the different behaviours that occur whenever the player
+  jumps. The player is the subject and calls each of it's observers when it jumps.
+  The observers (leaves, fruits and trunks) get those updates and know to act accordingly. These classes
+  do not know what the player is, and only receive a callback to it's subscription function upon creation,
+  this helps maintain encapsulations.
+  This means that there is a large help with using lambda functions (also seen in the transitions).

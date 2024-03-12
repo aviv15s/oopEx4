@@ -5,8 +5,8 @@ import danogl.components.GameObjectPhysics;
 import danogl.gui.rendering.RectangleRenderable;
 import danogl.gui.rendering.Renderable;
 import danogl.util.Vector2;
-import util.ColorSupplier;
-import util.JumpingObserver;
+import pepse.util.ColorSupplier;
+import pepse.util.JumpingObserver;
 
 import java.awt.*;
 
@@ -32,7 +32,7 @@ public class Trunk extends GameObject implements JumpingObserver {
     }
 
     /**
-     *
+     * function called whenever the player jumps
      */
     @Override
     public void onPlayerJump() {

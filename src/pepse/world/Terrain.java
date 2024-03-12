@@ -3,8 +3,8 @@ package pepse.world;
 import danogl.gui.rendering.RectangleRenderable;
 import danogl.gui.rendering.Renderable;
 import danogl.util.Vector2;
-import util.ColorSupplier;
-import util.NoiseGenerator;
+import pepse.util.ColorSupplier;
+import pepse.util.NoiseGenerator;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -37,10 +37,11 @@ public class Terrain {
 
     /**
      * calculates the ground height at the middle of the screen
+     *
      * @param windowDimensions window dimensions
      * @return height of terrain at middle of screen.
      */
-    public static int calculateGroundHeightAtX0(Vector2 windowDimensions){
+    public static int calculateGroundHeightAtX0(Vector2 windowDimensions) {
         return (int) (windowDimensions.y() * GROUND_HEIGHT_FACTOR);
     }
 
@@ -71,7 +72,7 @@ public class Terrain {
             for (int i = 0; i < TERRAIN_DEPTH; i++) {
                 Renderable renderable =
                         new RectangleRenderable(ColorSupplier.approximateColor(BASE_GROUND_COLOR));
-                Block block = new Block(new Vector2(x, blockHeight+i*Block.SIZE), renderable);
+                Block block = new Block(new Vector2(x, blockHeight + i * Block.SIZE), renderable);
                 list.add(block);
             }
         }

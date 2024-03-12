@@ -1,6 +1,6 @@
 package pepse.world.trees;
 
-import util.JumpingObserver;
+import pepse.util.JumpingObserver;
 
 import java.util.ArrayList;
 import java.util.List;

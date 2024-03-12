@@ -2,6 +2,15 @@ aviv.shemesh,ram3108_
 213847015, 213809957
 
 1) How we implemented the Trees package:
+- We divided the flora components to their basic building blocks. We created a class for the Fruit, Leaves and
+  Trunks. Those classes are then used in the Tree class which builds a complete tree out of these components.
+  The Flora class therefor has to only create trees randomly.
+  We chose to implement most of these classes as sub-classes of the GameObject, because the fruits and leaves
+  and trunks have unique behaviours that occur whenever the player jumps.
+  This makes the package built like a pyramid, where each class knows about itself and the classes it has to
+  manage. Therefor the Leaf, Trunk and Fruit are independent and the Tree and Flora class manipulate those
+  objects to create more complex structures of trees and forests. This helps keep the code encapsulated by
+  behaviour.
 
 2) The classes we created in that package:
 - Fruit: Class that extends GameObject and implements the Observer.

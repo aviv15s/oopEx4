@@ -3,10 +3,12 @@ package pepse.world.trees;
 import danogl.GameObject;
 import danogl.components.ScheduledTask;
 import danogl.components.Transition;
-import danogl.gui.rendering.Renderable;
+import danogl.gui.rendering.RectangleRenderable;
 import danogl.util.Vector2;
-import util.JumpingObserver;
+import pepse.util.ColorSupplier;
+import pepse.util.JumpingObserver;
 
+import java.awt.*;
 import java.util.Random;
 
 /**
@@ -16,23 +18,24 @@ import java.util.Random;
  */
 public class Leaf extends GameObject implements JumpingObserver {
 
-    private static final Vector2 MIN_LEAF_SIZE = new Vector2(30, 30);
-    private static final Vector2 MAX_LEAF_SIZE = new Vector2(40, 40);
-    private static final float TIME_TRANSITION_ROTATE = 4;
+    private static final Vector2 MIN_LEAF_SIZE = new Vector2(25, 25);
+    private static final Vector2 MAX_LEAF_SIZE = new Vector2(30, 30);
+    private static final float TIME_TRANSITION_ROTATE = 2;
     private static final float TIME_TRANSITION_SIZE = 1;
-    private static final float MAX_ANGLE = 40;
+    private static final float MAX_ANGLE = 30;
+    private static final Color LEAF_COLOR = new Color(50, 200, 30);
+
 
     /**
      * constructor
      *
      * @param topLeftCorner top left corner of leaf.
      * @param dimensions    dimensions of leaf.
-     * @param renderable    render of leaf.
      */
-    public Leaf(Vector2 topLeftCorner, Vector2 dimensions, Renderable renderable) {
-        super(topLeftCorner, dimensions, renderable);
+    public Leaf(Vector2 topLeftCorner, Vector2 dimensions) {
+        super(topLeftCorner, dimensions, new RectangleRenderable(ColorSupplier.approximateColor(LEAF_COLOR)));
         Random random = new Random();
-        setTransitionToLeaf(random.nextFloat());
+        setTransitionToLeaf(random.nextFloat() * Math.max(TIME_TRANSITION_ROTATE, TIME_TRANSITION_SIZE));
     }
 
     /**
@@ -41,7 +44,8 @@ public class Leaf extends GameObject implements JumpingObserver {
      * @param waitTime to activate after.
      */
     private void setTransitionToLeaf(float waitTime) {
-        new ScheduledTask(this, waitTime, false, () -> transitionsActivate(this));
+        new ScheduledTask(this, waitTime, false,
+                () -> transitionsActivate(this));
 
     }
 
@@ -54,7 +58,7 @@ public class Leaf extends GameObject implements JumpingObserver {
         Transition<Float> transitionRotate = new Transition<Float>(
                 leaf,
                 (angle) -> leaf.renderer().setRenderableAngle(angle),
-                0f,
+                -MAX_ANGLE,
                 MAX_ANGLE,
                 Transition.LINEAR_INTERPOLATOR_FLOAT,
                 TIME_TRANSITION_ROTATE,

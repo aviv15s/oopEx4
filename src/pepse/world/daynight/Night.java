@@ -16,7 +16,7 @@ import java.awt.*;
  */
 public class Night {
     public static final String NIGHT_TAG = "night";
-    public static final float MIDNIGHT_DARKNESS = 0.5f;
+    private static final float MIDNIGHT_DARKNESS = 0.5f;
 
     /**
      * private constructor to prevent creation of instances of this class

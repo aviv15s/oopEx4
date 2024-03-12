@@ -5,7 +5,7 @@ import danogl.gui.ImageReader;
 import danogl.gui.UserInputListener;
 import danogl.gui.rendering.AnimationRenderable;
 import danogl.util.Vector2;
-import util.JumpingObserver;
+import pepse.util.JumpingObserver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class Avatar extends GameObject {
     private static final float VELOCITY_X = 400;
     private static final float VELOCITY_Y = -650;
     private static final float GRAVITY = 600;
-    public static final Vector2 DIMENSIONS = new Vector2(50, 100);
+    private static final Vector2 DIMENSIONS = new Vector2(50, 100);
     private static final float MOVEMENT_ENERGY_COST = 0.5f;
     private static final float JUMP_ENERGY_COST = 10f;
     private static final float ANIMATION_SPEED = 0.2f;
@@ -67,11 +67,14 @@ public class Avatar extends GameObject {
         physics().preventIntersectionsFromDirection(Vector2.ZERO);
         transform().setAccelerationY(GRAVITY);
 
-        idleRenderable = new AnimationRenderable(IDLE_SPRITES, imageReader, true, ANIMATION_SPEED);
+        idleRenderable = new AnimationRenderable(IDLE_SPRITES, imageReader,
+                true, ANIMATION_SPEED);
 
-        runningRenderable = new AnimationRenderable(RUNNING_SPRITES, imageReader, true, ANIMATION_SPEED);
+        runningRenderable = new AnimationRenderable(RUNNING_SPRITES, imageReader,
+                true, ANIMATION_SPEED);
 
-        jumpingRenderable = new AnimationRenderable(JUMPING_SPRITES, imageReader, true, ANIMATION_SPEED);
+        jumpingRenderable = new AnimationRenderable(JUMPING_SPRITES, imageReader,
+                true, ANIMATION_SPEED);
 
         renderer().setRenderable(idleRenderable);
         setTag(AVATAR_TAG);

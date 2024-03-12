@@ -6,7 +6,7 @@ import danogl.components.ScheduledTask;
 import danogl.gui.rendering.OvalRenderable;
 import danogl.gui.rendering.Renderable;
 import danogl.util.Vector2;
-import util.JumpingObserver;
+import pepse.util.JumpingObserver;
 import pepse.world.Avatar;
 
 import java.awt.*;
@@ -20,7 +20,7 @@ import java.util.Random;
 public class Fruit extends GameObject implements JumpingObserver {
     public static final String FRUIT_TAG = "fruit";
     private static final int WAIT_TIME = 30;
-    public static final float FRUIT_ENERGY_BONUS = 10f;
+    private static final float FRUIT_ENERGY_BONUS = 10f;
     private static final Color[] POSSIBLE_COLORS = new Color[]{
             Color.red, Color.yellow
     };
@@ -65,7 +65,7 @@ public class Fruit extends GameObject implements JumpingObserver {
      * @param gameObject object to act on.
      */
     private void transitionsActivate(GameObject gameObject) {
-        gameObject.renderer().setRenderable(new OvalRenderable(POSSIBLE_COLORS[0]));
+        gameObject.renderer().setRenderable(new OvalRenderable(POSSIBLE_COLORS[myColor]));
     }
 
     /**
